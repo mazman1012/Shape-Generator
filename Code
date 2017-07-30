@@ -39,7 +39,8 @@ if shape == "square":               #This section will run if the user inputs a 
 elif shape == "triangle":           #This section will run if the user inputs a triangle
     dim = ((2*area)/((3**.5)/2)     #Formula for the side length of this triangle in terms of it's area
 
-    alex.forward(dim)               #This sub-section will draw a triangle with the inputted area
+    alex.begin_fill()               #This sub-section will draw a triangle with the inputted area
+    alex.forward(dim)               
     alex.left(120)                  
     alex.forward(dim)
     alex.left(120)
@@ -90,6 +91,14 @@ else:                                  #This section will run if the user inputs
 
 
     
+
+
+
+    
+
+
+    
+
 
 
 
