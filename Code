@@ -1,0 +1,95 @@
+import turtle
+alex = turtle.Turtle()
+alex.shape("turtle")
+import math
+
+area = 1000
+color="red"
+shape = "square"
+
+if color == "black":
+    alex.color("black")
+elif color == "blue":
+    alex.color("blue")
+elif color == "red":
+    alex.color("red")
+elif color == "yellow":
+    alex.color("yellow")
+elif color == "green":
+    alex.color("green")
+elif color == ("purple"):
+    alex.color("purple")
+elif color == "orange":
+    alex.color("orange")
+    
+if shape == "square":
+    dim = area**.5
+    alex.begin_fill()
+    alex.forward(dim)
+    alex.right(90)
+    alex.forward(dim)
+    alex.right(90)
+    alex.forward(dim)
+    alex.right(90)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+    
+elif shape == "triangle":
+    dim = ((2*area)/((3**.5)/2)  
+    alex.forward(dim)
+    alex.left(120)
+    alex.forward(dim)
+    alex.left(120)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "circle":
+    dim =(area/math.pi())**.5
+    begin_fill()
+    alex.circle(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "trapezoid":
+    dim = ((64/area)/(7*(3**.5)))**.5
+    alex.begin_fill()
+    alex.forward(dim)
+    alex.left(120)
+    alex.forward(dim / 4)
+    alex.right(120)
+    alex.backward((3/4) * dim)
+    alex.right(120)
+    alex.forward(dim / 4)
+    alex.left(120)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "rhombus":
+    dim = ((2*area)/((3)**.5)))**.5
+    alex.begin_fill()
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(120)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+else:
+        print("Can't do that")
+
+
+    
+
+
+
+    
+
+
+    
+
