@@ -1,13 +1,13 @@
-import turtle
-alex = turtle.Turtle()
-alex.shape("turtle")
-import math
+import turtle                        #imports turtle library
+alex = turtle.Turtle()               #creates cursor
+alex.shape("turtle")                 #makes cursor shaped like a turtle
+import math                          #imports math library
 
-area = 1000
-color="red"
-shape = "square"
+area = 1000                          #user inputs area
+color="red"                          #user inputs color
+shape = "square"                     #user inputs shape
 
-if color == "black":
+if color == "black":                 #This section will make the pen match the inputted color
     alex.color("black")
 elif color == "blue":
     alex.color("blue")
@@ -22,9 +22,10 @@ elif color == ("purple"):
 elif color == "orange":
     alex.color("orange")
     
-if shape == "square":
-    dim = area**.5
-    alex.begin_fill()
+if shape == "square":               #This section will run if the user inputs a square
+    dim = area**.5                  #The formula for the side length of the square in terms of it's area
+
+    alex.begin_fill()               #This sub-section will draw a square with the inputted area       
     alex.forward(dim)
     alex.right(90)
     alex.forward(dim)
@@ -35,26 +36,29 @@ if shape == "square":
     alex.end_fill()
     alex.hideturtle()
     
-elif shape == "triangle":
-    dim = ((2*area)/((3**.5)/2)  
-    alex.forward(dim)
-    alex.left(120)
+elif shape == "triangle":           #This section will run if the user inputs a triangle
+    dim = ((2*area)/((3**.5)/2)     #Formula for the side length of this triangle in terms of it's area
+
+    alex.forward(dim)               #This sub-section will draw a triangle with the inputted area
+    alex.left(120)                  
     alex.forward(dim)
     alex.left(120)
     alex.forward(dim)
     alex.end_fill()
     alex.hideturtle()
 
-elif shape == "circle":
-    dim =(area/math.pi())**.5
-    begin_fill()
+elif shape == "circle":            #This section will run if the user inputs a circle
+    dim =(area/math.pi())**.5      #Formula for the radius of the circle in terms of it's area
+
+    begin_fill()                   #This sub-section will draw a cricle with the inputted area
     alex.circle(dim)
     alex.end_fill()
     alex.hideturtle()
 
-elif shape == "trapezoid":
-    dim = ((64/area)/(7*(3**.5)))**.5
-    alex.begin_fill()
+elif shape == "trapezoid":               #This section will run if the user inputs a trapezoid
+    dim = ((64/area)/(7*(3**.5)))**.5    #Formula for the bottom base of the trapezoid in terms of it's area
+
+    alex.begin_fill()                    #This sub-section will draw a trapezoid with the inputted area
     alex.forward(dim)
     alex.left(120)
     alex.forward(dim / 4)
@@ -66,9 +70,10 @@ elif shape == "trapezoid":
     alex.end_fill()
     alex.hideturtle()
 
-elif shape == "rhombus":
-    dim = ((2*area)/((3)**.5)))**.5
-    alex.begin_fill()
+elif shape == "rhombus":                #This section will run if the user inputs a rhombus
+    dim = ((2*area)/((3)**.5)))**.5     #Formula for the side length of the rhombus in terms of it's area
+
+    alex.begin_fill()                   #This sub-section will draw a rhombus in with the inputted area
     alex.left(60)
     alex.forward(dim)
     alex.left(60)
@@ -80,7 +85,7 @@ elif shape == "rhombus":
     alex.end_fill()
     alex.hideturtle()
 
-else:
+else:                                  #This section will run if the user inputs a shape that the program is unable to draw
         print("Can't do that")
 
 
