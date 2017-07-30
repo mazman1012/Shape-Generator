@@ -3,24 +3,11 @@ alex = turtle.Turtle()               #creates cursor
 alex.shape("turtle")                 #makes cursor shaped like a turtle
 import math                          #imports math library
 
-area = 1000                          #user inputs area
+area =                     #user inputs area
 color="red"                          #user inputs color
-shape = "square"                     #user inputs shape
+shape = "circle"                     #user inputs shape
 
-if color == "black":                 #This section will make the pen match the inputted color
-    alex.color("black")
-elif color == "blue":
-    alex.color("blue")
-elif color == "red":
-    alex.color("red")
-elif color == "yellow":
-    alex.color("yellow")
-elif color == "green":
-    alex.color("green")
-elif color == ("purple"):
-    alex.color("purple")
-elif color == "orange":
-    alex.color("orange")
+alex.color(color)                   #matches pen color with inputted color
     
 if shape == "square":               #This section will run if the user inputs a square
     dim = area**.5                  #The formula for the side length of the square in terms of it's area
@@ -37,7 +24,7 @@ if shape == "square":               #This section will run if the user inputs a 
     alex.hideturtle()
     
 elif shape == "triangle":           #This section will run if the user inputs a triangle
-    dim = ((2*area)/((3**.5)/2)     #Formula for the side length of this triangle in terms of it's area
+    dim = ((4*area)/(3)**.5)**.5    #Formula for the side length of this triangle in terms of it's area
 
     alex.begin_fill()               #This sub-section will draw a triangle with the inputted area
     alex.forward(dim)               
@@ -49,15 +36,15 @@ elif shape == "triangle":           #This section will run if the user inputs a 
     alex.hideturtle()
 
 elif shape == "circle":            #This section will run if the user inputs a circle
-    dim =(area/math.pi())**.5      #Formula for the radius of the circle in terms of it's area
+    dim =(area/math.pi)**.5        #Formula for the radius of the circle in terms of it's area
 
-    begin_fill()                   #This sub-section will draw a cricle with the inputted area
+    alex.begin_fill()              #This sub-section will draw a cricle with the inputted area
     alex.circle(dim)
     alex.end_fill()
     alex.hideturtle()
 
 elif shape == "trapezoid":               #This section will run if the user inputs a trapezoid
-    dim = ((64/area)/(7*(3**.5)))**.5    #Formula for the bottom base of the trapezoid in terms of it's area
+    dim =((64*area)/(7*(3)**.5))**.5     #Formula for the bottom base of the trapezoid in terms of it's area
 
     alex.begin_fill()                    #This sub-section will draw a trapezoid with the inputted area
     alex.forward(dim)
@@ -72,7 +59,7 @@ elif shape == "trapezoid":               #This section will run if the user inpu
     alex.hideturtle()
 
 elif shape == "rhombus":                #This section will run if the user inputs a rhombus
-    dim = ((2*area)/((3)**.5)))**.5     #Formula for the side length of the rhombus in terms of it's area
+    dim = ((2*area)/((3)**.5))**.5      #Formula for the side length of the rhombus in terms of it's area
 
     alex.begin_fill()                   #This sub-section will draw a rhombus in with the inputted area
     alex.left(60)
@@ -86,19 +73,94 @@ elif shape == "rhombus":                #This section will run if the user input
     alex.end_fill()
     alex.hideturtle()
 
-else:                                  #This section will run if the user inputs a shape that the program is unable to draw
+elif shape == "pentagon":                             #This section will run if user inputs a pentagon
+    dim =(area/(0.25*(5*(5+2*(5)**.5))**.5))**.5      #Formula for the side length of the pentagon in terms of it's area
+
+    alex.begin_fill()                                 #This sub-section will draw a pentagon with the inputted area
+    alex.forward(dim)
+    alex.left(72)
+    alex.forward(dim)
+    alex.left(72)
+    alex.forward(dim)
+    alex.left(72)
+    alex.forward(dim)
+    alex.left(72)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "hexagon":                #This section will run if the user inputs a hexagon
+    dim = ((2*area)/(3*(3)**.5))**.5    #Formula for the side length of this hexagon in terms of it's area
+
+    alex.begin_fill()                   #This sub-section will draw a hexagon with the inputted area
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.left(60)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "octagon":              #This section will run if the user inputs an octagon
+    dim =(area/(2*(1+(2)**.5)))**.5   #Formula for the side length of the octagon in terms of it's area
+
+    alex.begin_fill()                 #This sub-section will draw an octagon with the inputted area
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.left(45)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+elif shape == "decagon":                        #This section will run if the user inputs a decagon
+    dim =((2*area)/(5*(5+2*(5)**.5)**.5))**.5   #Formula for the side length of the decagon in terms of it's area
+
+    alex.begin_fill()                           #This sub-section will draw a decagon with the inputted area
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.left(36)
+    alex.forward(dim)
+    alex.end_fill()
+    alex.hideturtle()
+
+    
+else:                                            #This section will run if the user inputs a shape that the program is unable to draw
         print("Can't do that")
 
 
     
-
-
-
-    
-
-
-    
-
 
 
 
