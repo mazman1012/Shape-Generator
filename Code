@@ -2,170 +2,110 @@ import turtle                        #imports turtle library
 alex = turtle.Turtle()               #creates cursor
 alex.shape("turtle")                 #makes cursor shaped like a turtle
 import math                          #imports math library
-
-area =                     #user inputs area
-color="red"                          #user inputs color
-shape = "circle"                     #user inputs shape
-
-alex.color(color)                   #matches pen color with inputted color
+n = 0                                #starts loop counter
+color="Blue"                         #user inputs color
+shape = "Circle"                 #user inputs shape
+area = 10000                        #User inputs area
+number = 5                            #User inputs number of shapes drawn
+alex.color(color)               #matches pen color with inputted color
+alex.penup()                    #Turtle doesn't leave trail
+alex.backward(600)              #Turtle moves to the left side of the screen
+def drawpoly():                 #Funtion will draw a regular polygon with the inputted number of sides and the inputted area
+    alex.begin_fill()
+    alex.right(theta)
+    alex.circle(rad,360,sides)
+    alex.end_fill()
+def forward():                  #Function will move the turtle forward before drawing another shape
+    alex.left(theta)
+    alex.up()
+    alex.forward(rad*2)
+    alex.down()
+def polyloop():                #Function will draw inputted number of polygons
+    for n in range (0,number):
+        drawpoly()
+        forward()
+        n =n+1
+if shape == "Triangle":        #This section will run if user inputs Triangle
+    sides = 3                  #A Triangle has 3 sides
+    rad = (4*area)**.5/3       #Formula for the radius of the triangle's circumscribed circle in terms of the triangle's area
+    theta = 180                #Makes Trianlge right side up
+    polyloop()
+elif shape == "Square":          #This section will run if user inputs Square
+    sides = 4                  #A square has 4 sides
+    rad =(2*area)**.5/2        #Formua for the radius of the square's circumscribed circle in terms of the square's area
+    theta = 45                 #Makes square horizontal.
+    polyloop()
+elif shape =="Pentagon":         #This section will run if user inputs Pentagon
+    sides = 5                  #A pentagon has 5 sides
+    rad = (math.sqrt((4*area)/(sides*math.tan(((sides-2)*math.pi)/(2*sides))))*math.tan(((sides-2)*math.pi)/(2*sides)))/2 #*
+    theta = 180                #Makes pentagon right side up
+    polyloop()
+elif shape == "Hexagon":         #This will run if user inputs Hexagon
+    sides = 6                #A hexagon has 6 sides
+    rad = (math.sqrt((4*area)/(sides*math.tan(((sides-2)*math.pi)/(2*sides))))*math.tan(((sides-2)*math.pi)/(2*sides)))/2 #*
+    theta = 30                  #Makes hexagon horizontal
+    polyloop()
+elif shape == "Octagon":          #This will run if user inputs Octagon
+    sides = 8                   #An octagon has 8 sides
+    rad = (math.sqrt((4*area)/(sides*math.tan(((sides-2)*math.pi)/(2*sides))))*math.tan(((sides-2)*math.pi)/(2*sides)))/2 #*
+    theta = 22.5                   #Makes octagon horizontal
+    polyloop()
+elif shape == "Decagon":          #This will run if user inputs Decagon
+    sides = 10                  #A decagon has 10 sides
+    rad = (math.sqrt((4*area)/(sides*math.tan(((sides-2)*math.pi)/(2*sides))))*math.tan(((sides-2)*math.pi)/(2*sides)))/2 #*
+    theta = 18                   #Makes decagon horizontal
+    polyloop()
+elif shape == "Rhombus":           #This will run if user inputs Rhombus
+    sides = 3                    #A triangle has 3 sides
+    theta = 0                    #Rhombus is already vericle
+    rad = (2/3)*(math.sqrt(area/math.sin(math.pi/3))*math.sin(math.pi/3)) #Formula for the radius circumscribed circle of a triangle in terms of it's rhombus's area
+    for n in range(0,number):                                                         #Will draw rhombi by drawing 2 triangles per rhombus
+        drawpoly()
+        alex.left(90)
+        alex.forward(((math.sqrt(area/math.sin(math.pi/3))*math.sin(math.pi/3)))*2)
+        alex.left(90)
+        drawpoly()
+        alex.left(90)
+        alex.forward(((math.sqrt(area/math.sin(math.pi/3))*math.sin(math.pi/3)))*2)
+        alex.left(90)
+        forward()
+        n = n+1
+if shape == "Trapezoid":             #Runs if user inputs Trapezoid      
+    for n in range(0,number):        #Draws trapezoids by using 2 triangles and a rectangle for each shape
+        sides = 3
+        rad = (2/3)*(((1/4)*math.sqrt((16*area)/(7/math.sqrt(3)))*math.sin(math.pi/3)))
+        theta = 180
+        drawpoly()
+        alex.backward((3/4)*math.sqrt((16*area)/(7*math.sqrt(3))))
+        alex.left(180)
+        drawpoly()
+        alex.down()
+        alex.begin_fill()
+        alex.forward((3/4)*math.sqrt((16*area)/(7*math.sqrt(3))))
+        alex.left(90)
+        alex.forward((((1/4)*math.sqrt((16*area)/(7/math.sqrt(3)))*math.sin(math.pi/3))))
+        alex.left(90)
+        alex.forward((3/4)*math.sqrt((16*area)/(7*math.sqrt(3))))
+        alex.left(90)
+        alex.forward((((1/4)*math.sqrt((16*area)/(7/math.sqrt(3)))*math.sin(math.pi/3))))
+        alex.end_fill()
+        alex.right(90)
+        theta = 0
+        forward()
+        n = n+1
+if shape == "Circle":                #Runs if user inputs Circle
+    theta = 0                       #Circle doesn't need to rotate
+    rad = math.sqrt(area/math.pi)   #Formula for a circle radius in terms of it's area
+    for n in range(0, number):      #Draws circles
+        alex.down()
+        alex.begin_fill()
+        alex.circle(rad)
+        alex.end_fill()
+        forward()
+        n =n+1
+else:
+    print ("Sorry! Can't do that. Try starting your shape with a capital letter.")
+"""*The formula for the radius of the circumscribed circle of a regualar polygon in terms of the polygons area and number of sides"""
     
-if shape == "square":               #This section will run if the user inputs a square
-    dim = area**.5                  #The formula for the side length of the square in terms of it's area
-
-    alex.begin_fill()               #This sub-section will draw a square with the inputted area       
-    alex.forward(dim)
-    alex.right(90)
-    alex.forward(dim)
-    alex.right(90)
-    alex.forward(dim)
-    alex.right(90)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
+        
     
-elif shape == "triangle":           #This section will run if the user inputs a triangle
-    dim = ((4*area)/(3)**.5)**.5    #Formula for the side length of this triangle in terms of it's area
-
-    alex.begin_fill()               #This sub-section will draw a triangle with the inputted area
-    alex.forward(dim)               
-    alex.left(120)                  
-    alex.forward(dim)
-    alex.left(120)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "circle":            #This section will run if the user inputs a circle
-    dim =(area/math.pi)**.5        #Formula for the radius of the circle in terms of it's area
-
-    alex.begin_fill()              #This sub-section will draw a cricle with the inputted area
-    alex.circle(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "trapezoid":               #This section will run if the user inputs a trapezoid
-    dim =((64*area)/(7*(3)**.5))**.5     #Formula for the bottom base of the trapezoid in terms of it's area
-
-    alex.begin_fill()                    #This sub-section will draw a trapezoid with the inputted area
-    alex.forward(dim)
-    alex.left(120)
-    alex.forward(dim / 4)
-    alex.right(120)
-    alex.backward((3/4) * dim)
-    alex.right(120)
-    alex.forward(dim / 4)
-    alex.left(120)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "rhombus":                #This section will run if the user inputs a rhombus
-    dim = ((2*area)/((3)**.5))**.5      #Formula for the side length of the rhombus in terms of it's area
-
-    alex.begin_fill()                   #This sub-section will draw a rhombus in with the inputted area
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(120)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "pentagon":                             #This section will run if user inputs a pentagon
-    dim =(area/(0.25*(5*(5+2*(5)**.5))**.5))**.5      #Formula for the side length of the pentagon in terms of it's area
-
-    alex.begin_fill()                                 #This sub-section will draw a pentagon with the inputted area
-    alex.forward(dim)
-    alex.left(72)
-    alex.forward(dim)
-    alex.left(72)
-    alex.forward(dim)
-    alex.left(72)
-    alex.forward(dim)
-    alex.left(72)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "hexagon":                #This section will run if the user inputs a hexagon
-    dim = ((2*area)/(3*(3)**.5))**.5    #Formula for the side length of this hexagon in terms of it's area
-
-    alex.begin_fill()                   #This sub-section will draw a hexagon with the inputted area
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.left(60)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "octagon":              #This section will run if the user inputs an octagon
-    dim =(area/(2*(1+(2)**.5)))**.5   #Formula for the side length of the octagon in terms of it's area
-
-    alex.begin_fill()                 #This sub-section will draw an octagon with the inputted area
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.left(45)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-elif shape == "decagon":                        #This section will run if the user inputs a decagon
-    dim =((2*area)/(5*(5+2*(5)**.5)**.5))**.5   #Formula for the side length of the decagon in terms of it's area
-
-    alex.begin_fill()                           #This sub-section will draw a decagon with the inputted area
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.left(36)
-    alex.forward(dim)
-    alex.end_fill()
-    alex.hideturtle()
-
-    
-else:                                            #This section will run if the user inputs a shape that the program is unable to draw
-        print("Can't do that")
-
-
-    
-
-
-
-    
-
-
-    
-
